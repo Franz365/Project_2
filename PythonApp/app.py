@@ -36,7 +36,12 @@ results = engine.execute("select * from breweries").fetchall()
 breweries = []
 for i in results:
     breweries.append({'Coordinates':[i[15], i[16]],
-                      'Brewery Name': i[1] })
+                      'Brewery Name': i[1],
+                      'Address:': i[3],
+                      'Phone:': i[8],
+                      'State:': i[7],
+                      'Region:': i[20],
+                       })
 #################################################
 # Flask Setup
 #################################################
