@@ -2,13 +2,13 @@
 
 ## Requirements
 
-Building a dashboard page with multiple charts that update from the same data. [Open Brewery DB](https://github.com/openbrewerydb/openbrewerydb).
+Building a dashboard page with multiple charts that update from the same data.
 
 ## Breweries in the United States
 
 In this project we're going to visualize the following details of breweries in the United States:
 
-- location marker on a map with tooltip
+- location marker on an interactive heat map with tooltips
 - breakdown [by type](https://www.openbrewerydb.org/documentation/01-listbreweries#by_type)
 - breakdown [by region](https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf)
 
