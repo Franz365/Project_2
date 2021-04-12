@@ -35,3 +35,7 @@ We used the Database Credentials from the Heroku website and connected it to our
 We created a new table with the relevant columns, see [schema](https://github.com/Franz365/Project_2/blob/main/data/schema.sql).
 
 Lastly we imported the [cleaned data](https://github.com/Franz365/Project_2/blob/main/data/breweries_clean.csv) into the remote database.
+
+## Flask setup
+
+We used Python and Flask to setup our application ([app.py](https://github.com/Franz365/Project_2/blob/main/PythonApp/app.py)). The main route will render our dashboard. The "/test" route will display the json data.
