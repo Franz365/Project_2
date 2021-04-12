@@ -354,3 +354,6 @@ config/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# .vscode folder with settings
+.vscode/
