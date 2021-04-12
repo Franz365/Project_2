@@ -1,5 +1,7 @@
 # Project_2
 
+![Beer](https://gfycat.com/bothsnoopyalaskanhusky)
+
 ## Requirements
 
 Building a dashboard page with multiple charts that update from the same data.
