@@ -1,5 +1,5 @@
 import numpy as np
-
+import pandas as pd
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -32,29 +32,34 @@ Base.prepare(engine, reflect=True)
 
 results = engine.execute("select * from breweries").fetchall()
 
-#Creating a list of Dictionaries
-breweries = []
-for i in results:
-    breweries.append({'Coordinates':[i[16], i[15]],
-                      'Name': i[1],
-                      'Type': i[2],
-                      'Address': {
-                          'Street': i[3],
-                          'City': i[6],
-                          'State': i[7],
-                          'Post Code': i[9]
-                      },
-                      'Phone:': i[11],
-                      'Url:': i[10],
-                      'Country': i[14],
-                      'Region:': i[21],
-                      'Division': i[22]
-                      })
+# #Creating a list of Dictionaries
+# breweries = []
+# for i in results:
+#     breweries.append({'Coordinates':[i[16], i[15]],
+#                       'Name': i[1],
+#                       'Type': i[2],
+#                       'Address': {
+#                           'Street': i[3],
+#                           'City': i[6],
+#                           'State': i[7],
+#                           'Post Code': i[9]
+#                       },
+#                       'Phone:': i[11],
+#                       'Url:': i[10],
+#                       'Country': i[14],
+#                       'Region:': i[21],
+#                       'Division': i[22]
+#                     })
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
-
+df = pd.DataFrame(results)
+columns = engine.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'breweries'").fetchall()
+new_columns = []
+for i in columns:
+    new_columns.append(i[0])
+df.columns = new_columns
 
 #################################################
 # Flask Routes
@@ -71,6 +76,11 @@ def welcome():
     
     return (jsonify(breweries))
 
+@app.route("/api/count_by_region")
+def count_by_region():
+    count_by_region = df["region"].value_counts().to_dict()
+
+    return jsonify(count_by_region)
 
 if __name__ == '__main__':
     app.run(debug=True)
