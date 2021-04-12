@@ -20,7 +20,7 @@ We imported the breweries data files (.csv, .json, .sql) from the [Open Brewery 
 
 ## Data clean up
 
-We used Jupyter Notebook to clean up and make the following transformations:
+We used Jupyter Notebook to clean up the data and make the following transformations:
 
 - delete all entries without latitude and longitude details (cannot be visualised)
 - delete all entries outside of the United States (UK and Scottland were also in the DB)
