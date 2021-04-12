@@ -1,6 +1,6 @@
 # Project_2
 
-![Beer](https://external-preview.redd.it/3q9kq36CjTIi7JieyuR7yTqgGOg39Qw1lM_JI3TFDC8.gif?format=mp4&s=6dc2a6af454cbccd665463b908bfbdda54c2c15d)
+![Beer](https://github.com/Franz365/Project_2/blob/main/images/beer.gif)
 
 ## Requirements
 
