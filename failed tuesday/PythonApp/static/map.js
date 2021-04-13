@@ -19,7 +19,7 @@ function createMap(breweries) {
   };
 
   // Create the map object with options
-  var map = L.map("map-id", {
+  var myMap = L.map("map-id", {
     center: [37.0902, -95.7129],
     zoom: 4,
     layers: [lightmap, breweries]
@@ -32,32 +32,36 @@ function createMap(breweries) {
 }
 
 function createMarkers(response) {
+  // Create a new marker cluster group
+  var markers = L.markerClusterGroup();
 
-  // Initialize an array to hold brewery markers
-  var markers = [];
+  // Loop through data
+  for (var i = 0; i < response.length; i++) {
 
-  // Loop through the breweries array
-  for (var index = 0; index < response.length; index++) {
-    var brewery = response[index];
+    // Set the brewery property to a variable
+    var brewery = response[i];
 
-    // For each brewery, create a marker and bind a popup with the brewery's name and address
-    var marker = L.marker([brewery.Coordinates[0], brewery.Coordinates[1]])
-      .bindPopup("<h3>" + brewery.Name + "<h3><h3>Address: " + brewery.Address + "</h3>");
+    // Check for brewery
+    if (brewery) {
 
-    // Add the marker to the markers array
-    markers.push(marker);
+      // Add a new marker to the cluster group and bind a pop-up
+      markers.addLayer(L.marker([brewery.Coordinates[0], brewery.Coordinates[1]])
+        .bindPopup("<h3>" + brewery.Name + "<h3><h3>Address: " + brewery.Address + "</h3>"));
+    }
+
   }
 
-  // Create a layer group made from the bike markers array, pass it into the createMap function
-  createMap(L.layerGroup(markers));
+  // Add our marker cluster layer to the map
+  myMap.addLayer(markers);
+
 }
 
 
-// // Perform an API call to the Citi Bike API to get brewery information. Call createMarkers when complete
-d3.json("/api", createMarkers);
 
-d3.json("/api", function(data) {
-  // Visualize the data
+// // // Perform an API call to the /api route to get brewery information. Call createMarkers when complete
+d3.json("/api", function (data) {
+  // Log the data
   console.log(data);
+  // Run the createMarkers function
   createMarkers(data);
 });
