@@ -46,4 +46,4 @@ We used Python and Flask to setup our application ([app.py](https://github.com/F
 
 We used leaflet to map all us breweries. As the number of data points is very high we will implement the [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) to declutter the map.
 
-![Errors](https://github.com/Franz365/Project_2/blob/main/images/Map_w_simpleMarker.png)
+![breweryMap](https://github.com/Franz365/Project_2/blob/main/images/Map_w_markerCluster.png)
