@@ -19,7 +19,7 @@ function createMap(breweries) {
   };
 
   // Create the map object with options
-  var map = L.map("map-id", {
+  var myMap = L.map("map-id", {
     center: [37.0902, -95.7129],
     zoom: 4,
     layers: [lightmap, breweries]
@@ -28,7 +28,7 @@ function createMap(breweries) {
   // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
-  }).addTo(map);
+  }).addTo(myMap);
 }
 
 function createMarkers(response) {
