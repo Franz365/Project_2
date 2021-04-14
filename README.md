@@ -40,4 +40,10 @@ Lastly we imported the [cleaned data](https://github.com/Franz365/Project_2/blob
 
 ## Flask setup
 
-We used Python and Flask to setup our application ([app.py](https://github.com/Franz365/Project_2/blob/main/PythonApp/app.py)). The main route will render our dashboard. The "/test" route will display the json data.
+We used Python and Flask to setup our application ([app.py](https://github.com/Franz365/Project_2/blob/main/PythonApp/app.py)). The main route will render our dashboard. The "/api" route will display the json data.
+
+## Map of breweries
+
+We used leaflet to map all us breweries. As the number of data points is very high we will implement the [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) to declutter the map.
+
+![Errors](https://github.com/Franz365/Project_2/blob/main/images/Map_w_simpleMarker.png)
