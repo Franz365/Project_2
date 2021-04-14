@@ -33,12 +33,15 @@ function createMap(breweries) {
 
 function createMarkers(response) {
 
+  // Pull the "breweries" property off of response.data
+  var breweries = response;
+
   // Initialize an array to hold brewery markers
   var markers = [];
 
   // Loop through the breweries array
-  for (var index = 0; index < response.length; index++) {
-    var brewery = response[index];
+  for (var i = 0; i < breweries.length; i++) {
+    var brewery = breweries[i];
 
     // For each brewery, create a marker and bind a popup with the brewery's name and address
     var marker = L.marker([brewery.Coordinates[0], brewery.Coordinates[1]])
@@ -52,12 +55,10 @@ function createMarkers(response) {
   createMap(L.layerGroup(markers));
 }
 
-
-// // Perform an API call to the Citi Bike API to get brewery information. Call createMarkers when complete
-d3.json("/api", createMarkers);
-
+// // Perform an API call to api/ route to get brewery information. Call createMarkers when complete
 d3.json("/api", function(data) {
-  // Visualize the data
+  // Log the data
   console.log(data);
+  // call createMarkers
   createMarkers(data);
 });
