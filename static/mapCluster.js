@@ -30,8 +30,8 @@ d3.json("/api", function (response) {
         var brewery = response[i];
 
         // Add a new marker to the cluster group and bind a pop-up with the brewery's name and type
-        var newMarker = L.marker([brewery.Coordinates[0], brewery.Coordinates[1]]);
-        newMarker.bindPopup("<h3>" + brewery.Name + "<h3><h3>Brewery type: " + brewery.Type + "</h3>");
+        var newMarker = L.marker([brewery.latitude, brewery.longitude]);
+        newMarker.bindPopup("<h3>" + brewery.name + "<h3><h3>Brewery type: " + brewery.brewery_type + "</h3>");
 
         // Add the new marker to the markers array
         markers.addLayer(newMarker);
