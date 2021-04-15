@@ -20,6 +20,3 @@ def create_classes(db):
 
     return Breweries
 
-def get_selected_region():
-    selected_region = request.args.get("region")
-

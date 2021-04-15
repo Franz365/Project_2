@@ -352,9 +352,6 @@ MigrationBackup/
 # config folder with api keys
 config/
 
-# config file with api keys
-config.js
-
 # Jupyter Notebook
 .ipynb_checkpoints
 

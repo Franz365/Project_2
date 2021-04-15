@@ -15,7 +15,8 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap);
 
 // Grab the data with d3
-d3.json("/api", function (response) {
+d3.json("/api", function(response) {
+
 
     // Log the data
     console.log(response);
@@ -30,11 +31,14 @@ d3.json("/api", function (response) {
         var brewery = response[i];
 
         // Add a new marker to the cluster group and bind a pop-up with the brewery's name and type
-        var newMarker = L.marker([brewery.latitude, brewery.longitude]);
-        newMarker.bindPopup("<h3>" + brewery.name + "<h3><h3>Brewery type: " + brewery.brewery_type + "</h3>");
+        var mark = L.marker([
+            parseFloat(brewery["latitude"]),
+            parseFloat(brewery["longitude"])
+          ]);
+          mark.bindPopup("<h3>" + brewery.name + "<h3><h3>Brewery type: " + brewery.brewery_type + "</h3><h3>" + brewery.address + "<h3>");
 
         // Add the new marker to the markers array
-        markers.addLayer(newMarker);
+        markers.addLayer(mark);
 
     }
 
